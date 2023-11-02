@@ -7,7 +7,41 @@
     <title>Compare Movies</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <section id="movies">
+        <div id="add-movie-div">
+          <h2>Add Your Movie</h2>
+          <form id="add-movie">
+            <label for="title">Movie Title:</label>
+            <input type="text" id="title"><br>
+            <label for="critic-score">Critic Score:</label>
+            <input type="text" id="critic-score" style="width:40px"><br>
+            <label for="audience-score">Audience Score:</label>
+            <input type="text" id="audience-score" style="width:40px"><br>
+            <label for="sales">Domestic Gross Sales:</label>
+            <input type="text" id="sales"><br>
+            <label for="genre">Genre:</label>
+            <select id="genre">
+              <option value="default">Select a genre</option>
+              <option value="documentary">Documentary</option>
+              <option value="horror">Horror</option>
+              <option value="sci-fi">Sci-fi</option>
+              <option value="romance">Romance</option>
+              <option value="action">Action</option>
+            </select><br>
+            <input type="submit" value="Add Movie" id="submit-button">
+          </form>
+        </div>
+        <div id="view-movies-div">
+          <div id="view-movies"></div>
+          <button id="reset-movies">Go Back To Default Movies</button>
+        </div>
+      </section>
+      <canvas id="box-office"></canvas>
+      <canvas id="genre-gross"></canvas>
+      <canvas id="critic-audience"></canvas>
+      
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

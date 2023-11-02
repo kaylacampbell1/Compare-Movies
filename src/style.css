@@ -37,7 +37,7 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 1880px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -94,4 +94,63 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+#add-movie-div {
+  text-align: left;;
+}
+#movies {
+  display: flex;
+}
+#view-movies-div {
+  margin-left: 50px;
+}
+.movie, #view-movies, #add-movie-div {
+  background: #333333;
+}
+#view-movies {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  max-height: 500px;
+  overflow-y: scroll;
+  padding: 5px 30px;
+  border: solid 1px white;
+  margin-bottom: 20px;
+}
+.movie {
+  box-shadow: 2px 1px 24px rgb(35, 34, 34);
+  width: 250px;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 15px;
+}
+.movie p {
+  margin: 0;
+  line-height: 1;
+}
+.movie h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+#add-movie-div {
+  /* max-height: 230px; */
+  align-self: start;
+  padding: 10px;
+}
+#add-movie-div h2{
+  margin: 5px;
+}
+#add-movie-div #submit-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 3px 30px;
+}
+#reset-movies {
+  background: #6b6b6b;
+  padding: 2px 120px;
+  border-radius: 0;
 }
