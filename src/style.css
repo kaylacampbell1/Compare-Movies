@@ -96,7 +96,7 @@ button:focus-visible {
   }
 }
 #add-movie-div {
-  text-align: left;;
+  text-align: left;
 }
 #movies {
   display: flex;
@@ -104,7 +104,9 @@ button:focus-visible {
 #view-movies-div {
   margin-left: 50px;
 }
-.movie, #view-movies, #add-movie-div {
+.movie,
+#view-movies,
+#add-movie-div {
   background: #333333;
 }
 #view-movies {
@@ -140,7 +142,7 @@ button:focus-visible {
   align-self: start;
   padding: 10px;
 }
-#add-movie-div h2{
+#add-movie-div h2 {
   margin: 5px;
 }
 #add-movie-div #submit-button {
@@ -154,3 +156,7 @@ button:focus-visible {
   padding: 2px 120px;
   border-radius: 0;
 }
+#genre-gross {
+  max-height: 1000px;
+}
+

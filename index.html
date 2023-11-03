@@ -15,11 +15,11 @@
             <label for="title">Movie Title:</label>
             <input type="text" id="title"><br>
             <label for="critic-score">Critic Score:</label>
-            <input type="text" id="critic-score" style="width:40px"><br>
+            <input type="number" min="0" max="100" id="critic-score" style="width:40px"><br>
             <label for="audience-score">Audience Score:</label>
-            <input type="text" id="audience-score" style="width:40px"><br>
+            <input type="number" min="0" max="100" id="audience-score" style="width:40px"><br>
             <label for="sales">Domestic Gross Sales:</label>
-            <input type="text" id="sales"><br>
+            <input type="number" id="sales"><br>
             <label for="genre">Genre:</label>
             <select id="genre">
               <option value="default">Select a genre</option>
@@ -38,7 +38,8 @@
         </div>
       </section>
       <canvas id="box-office"></canvas>
-      <canvas id="genre-gross"></canvas>
+      <canvas id="genre-gross">
+      </canvas>
       <canvas id="critic-audience"></canvas>
       
     </div>
