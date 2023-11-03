@@ -139,7 +139,7 @@ button:focus-visible {
 }
 #add-movie-div {
   /* max-height: 230px; */
-  align-self: start;
+  align-self: center;
   padding: 10px;
 }
 #add-movie-div h2 {
@@ -159,4 +159,10 @@ button:focus-visible {
 #genre-gross {
   max-height: 1000px;
 }
-
+#add-movie {
+    line-height: 40px;
+}
+.intro {
+  text-align: left;
+  font-size: 200%;
+}

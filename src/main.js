@@ -10,6 +10,7 @@ let criticInput = document.getElementById("critic-score");
 let audienceInput = document.getElementById("audience-score");
 let salesInput = document.getElementById("sales");
 let genreInput = document.getElementById("genre");
+let resetButton = document.getElementById("reset-movies");
 
 const setLocalStorageItem = (key, value) => {
   localStorage.removeItem("movies");
@@ -20,7 +21,6 @@ const getLocalStorageItem = (key) => {
 };
 const addMovies = (input) => {
   setLocalStorageItem("movies", input);
-  console.log(getLocalStorageItem("movies"))
 };
 
 const displayMovies = () => {
@@ -44,9 +44,13 @@ const displayMovies = () => {
   }
 };
 
+let barChart;
+let doughnutChart;
+let scatterChart;
 
 const displayDomesticChart = (movies) => {
-  new Chart(document.getElementById("box-office"), {
+  let bar = document.getElementById("box-office");
+  barChart = new Chart(bar, {
     type: "bar",
     data: {
       labels: movies.map((movie) => movie.title),
@@ -62,14 +66,22 @@ const displayDomesticChart = (movies) => {
 
 
 const displayGenreChart = (movies) => {
-  new Chart(document.getElementById("genre-gross"), {
+  let doughnut = document.getElementById("genre-gross");
+  doughnutChart = new Chart(doughnut, {
     type: "doughnut",
     data: {
       labels: ["comedy", "action", "adventure", "drama", "concert", "horror"],
       datasets: [
         {
           label: "Genre and total gross",
-          data: [34, 21, 20, 12, 4, 60],
+          data: [
+            movies.filter((movie) => movie.genre === "comedy").length,
+            movies.filter((movie) => movie.genre === "action").length,
+            movies.filter((movie) => movie.genre === "adventure").length,
+            movies.filter((movie) => movie.genre === "drama").length,
+            movies.filter((movie) => movie.genre === "concert").length,
+            movies.filter((movie) => movie.genre === "horror").length,
+          ],
           backgroundColor: [
             "rgb(54,162,235)",
             "rgb(252,99,132)",
@@ -90,7 +102,7 @@ const displayGenreChart = (movies) => {
 const displayScoreChart = (movies) => {
   
   let scatter = document.getElementById("critic-audience");
-  new Chart(scatter, {
+  scatterChart = new Chart(scatter, {
     type: "scatter",
     data: {
       datasets: [
@@ -121,6 +133,16 @@ const displayScoreChart = (movies) => {
   });
 };
 
+const refreshInfo = () => {
+  displayMovies();
+  barChart.destroy();
+  displayDomesticChart(getLocalStorageItem("movies"));
+  doughnutChart.destroy();
+  displayGenreChart(getLocalStorageItem("movies"));
+  scatterChart.destroy();
+  displayScoreChart(getLocalStorageItem("movies"));
+}
+
 addMovies(movieData);
 displayDomesticChart(getLocalStorageItem("movies"));
 displayGenreChart(getLocalStorageItem("movies"));
@@ -137,10 +159,11 @@ form.addEventListener("submit", (e) => {
     title: movieTitleInput.value,
   };
   addMovies([newMovie, ...movieData]);
-  movieData.unshift(newMovie)
-  displayMovies()
-  displayDomesticChart(getLocalStorageItem("movies"));
-  displayGenreChart(getLocalStorageItem("movies"));
-  displayScoreChart(getLocalStorageItem("movies"));
+  movieData.unshift(newMovie);
+  refreshInfo();
 });
 
+resetButton.addEventListener("click", () => {
+  addMovies(defaultMovies);
+  refreshInfo();
+})
